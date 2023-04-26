@@ -440,6 +440,13 @@ function sortCitiesArray(/* arr */) {
  */
 function getIdentityMatrix(/* n */) {
   throw new Error('Not implemented');
+  // const result = [];
+  // for (let i = 0; i < n; i += 1) {
+  //   const arr = new Array(n).fill(0);
+  //   arr.splice(i, 1, 1);
+  //   result.push(arr);
+  // }
+  // return result;
 }
 
 /**
@@ -457,6 +464,11 @@ function getIdentityMatrix(/* n */) {
  */
 function getIntervalArray(/* start, end */) {
   throw new Error('Not implemented');
+  // const result = [];
+  // for (let i = start; i <= end; i++) {
+  //   result.push(i);
+  // }
+  // return result;
 }
 
 /**
@@ -562,8 +574,19 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const result = [];
+  const arrLeft = arr.slice(0, Math.floor(arr.length / 2));
+  const arrRight = arr.slice(Math.ceil(arr.length / 2), arr.length);
+  if (arr.length % 2 !== 0) {
+    result.push(...arrRight);
+    result.push(arr[Math.floor(arr.length / 2)]);
+    result.push(...arrLeft);
+  } else {
+    result.push(...arrRight);
+    result.push(...arrLeft);
+  }
+  return result;
 }
 
 
