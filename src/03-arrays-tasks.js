@@ -37,6 +37,15 @@ function findElement(arr, value) {
  */
 function generateOdds(/* len */) {
   throw new Error('Not implemented');
+  // const result = [];
+  // let count = 1;
+  // while (result.length < len) {
+  //   if (count % 2 !== 0) {
+  //     result.push(count);
+  //   }
+  //   count += 1;
+  // }
+  // return result;
 }
 
 
@@ -100,8 +109,8 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  return arr.filter((x) => Boolean(x));
 }
 
 /**
@@ -320,8 +329,17 @@ function getPositivesCount(/* arr */) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const digitWord = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => {
+    if (digitWord.indexOf(a) < digitWord.indexOf(b)) {
+      return -1;
+    }
+    if (digitWord.indexOf(a) > digitWord.indexOf(b)) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 /**
@@ -355,7 +373,13 @@ function getItemsSum(arr) {
 function getFalsyValuesCount(/* arr */) {
   throw new Error('Not implemented');
 }
-
+// let falsy = 0;
+// arr.forEach((x) => {
+//   if (!Boolean(x)) {
+//     falsy += 1;
+//   }
+// });
+// return falsy;
 /**
  * Returns a number of all occurrences of the specified item in an array
  *
@@ -373,7 +397,13 @@ function getFalsyValuesCount(/* arr */) {
 function findAllOccurrences(/* arr, item */) {
   throw new Error('Not implemented');
 }
-
+// let count = 0;
+// arr.forEach((x) => {
+//   if (x === item) {
+//     count += 1;
+//   }
+// });
+// return count;
 /**
  * Concatenates all elements from specified array into single string with ',' delimiter
  *
