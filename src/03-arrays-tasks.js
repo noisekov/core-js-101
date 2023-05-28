@@ -395,16 +395,15 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.reduce((acc, val) => {
+    if (val === item) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
 }
-// let count = 0;
-// arr.forEach((x) => {
-//   if (x === item) {
-//     count += 1;
-//   }
-// });
-// return count;
+
 /**
  * Concatenates all elements from specified array into single string with ',' delimiter
  *
