@@ -242,8 +242,11 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  return arr.reduce((acc, value) => {
+    acc.push(+acc.toString().split(',').at(-1) + value);
+    return acc;
+  }, []);
 }
 
 /**
@@ -380,13 +383,7 @@ function getFalsyValuesCount(arr) {
     return acc;
   }, 0);
 }
-// let falsy = 0;
-// arr.forEach((x) => {
-//   if (!Boolean(x)) {
-//     falsy += 1;
-//   }
-// });
-// return falsy;
+
 /**
  * Returns a number of all occurrences of the specified item in an array
  *
