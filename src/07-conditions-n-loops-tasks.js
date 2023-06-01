@@ -188,8 +188,21 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const obj = {};
+  str.split('').forEach((letter) => {
+    if (obj[letter] === undefined) {
+      obj[letter] = 1;
+    } else {
+      obj[letter] += 1;
+    }
+  });
+
+  const findIndexFirst = Object.values(obj).indexOf(1);
+  if (Object.keys(obj)[findIndexFirst] !== -1) {
+    return Object.keys(obj)[findIndexFirst];
+  }
+  return null;
 }
 
 
