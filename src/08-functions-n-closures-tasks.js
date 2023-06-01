@@ -171,6 +171,9 @@ function partialUsingArguments(/* fn, ...args1 */) {
  */
 function getIdGeneratorFunction(/* startFrom */) {
   throw new Error('Not implemented');
+  // return function () {
+  //   return startFrom++
+  // }
 }
 
 

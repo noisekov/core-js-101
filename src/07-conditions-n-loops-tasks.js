@@ -305,8 +305,16 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const arrNum = num.toString().split('').map(Number);
+  let count = 0;
+  arrNum.forEach((elem) => {
+    count += elem;
+  });
+  if (count.toString().split('').length !== 1) {
+    return getDigitalRoot(count);
+  }
+  return count;
 }
 
 
@@ -331,8 +339,33 @@ function getDigitalRoot(/* num */) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const objBrackets = {
+    '[': ']',
+    '(': ')',
+    '{': '}',
+    '<': '>',
+  };
+  const stack = [];
+  str.split('').forEach((bracket) => {
+    if (stack.length === 0) {
+      stack.push(bracket);
+    } else {
+      const lastElementStack = stack[stack.length - 1];
+      const compareStack = Object.keys(objBrackets).indexOf(lastElementStack);
+      const currentBracket = Object.values(objBrackets).indexOf(bracket);
+      if (compareStack === currentBracket) {
+        if (bracket !== lastElementStack && Object.keys(objBrackets).includes(lastElementStack)) {
+          stack.pop();
+        } else {
+          stack.push(bracket);
+        }
+      } else {
+        stack.push(bracket);
+      }
+    }
+  });
+  return stack.length === 0;
 }
 
 
